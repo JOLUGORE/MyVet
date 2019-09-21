@@ -9,7 +9,7 @@ using MyVet.Web.Data;
 namespace MyVet.Web.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20190919042803_InitialDb")]
+    [Migration("20190920204838_InitialDb")]
     partial class InitialDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,23 +26,29 @@ namespace MyVet.Web.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Address")
-                        .HasMaxLength(100);
-
-                    b.Property<int>("CellPhone")
+                    b.Property<string>("Address")
+                        .IsRequired()
                         .HasMaxLength(20);
 
-                    b.Property<int>("Document")
-                        .HasMaxLength(30);
-
-                    b.Property<int>("FirstName")
-                        .HasMaxLength(50);
-
-                    b.Property<int>("FixedPhone")
+                    b.Property<string>("CellPhone")
+                        .IsRequired()
                         .HasMaxLength(20);
 
-                    b.Property<int>("LastName")
-                        .HasMaxLength(50);
+                    b.Property<string>("Document")
+                        .IsRequired()
+                        .HasMaxLength(20);
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(20);
+
+                    b.Property<string>("FixedPhone")
+                        .IsRequired()
+                        .HasMaxLength(20);
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(20);
 
                     b.HasKey("Id");
 
