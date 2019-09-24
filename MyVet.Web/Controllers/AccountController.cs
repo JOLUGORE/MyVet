@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyVet.Web.Controllers
 {
+    [AllowAnonymous]
     [Authorize(Roles = "Admin")]
     public class AccountController : Controller
     {
